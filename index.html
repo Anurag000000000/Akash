@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshat rajput</title>
+    <title>Akshat Rajput - Live</title>
     <style>
-        /* Background aur Body setting */
         body {
             background-color: #0c0c0c;
             display: flex;
@@ -13,11 +12,11 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             color: white;
+            overflow: hidden;
         }
 
-        /* Main Card Container */
         .card {
             width: 90%;
             max-width: 400px;
@@ -29,69 +28,38 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Title Styling */
-        h1 {
-            font-size: 28px;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+        h1 { font-size: 28px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
 
-        /* Logo Circle */
+        /* Animation: Floating Logo */
         .logo-box {
-            width: 100px;
-            height: 100px;
+            width: 100px; height: 100px;
             border: 2px solid #e2b13c;
             border-radius: 50%;
             margin: 0 auto 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .logo-inner {
-            width: 85px;
-            height: 85px;
-            border: 1px dashed #e2b13c;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: 10px;
-            color: #e2b13c;
-        }
-
-        /* Big Number 60 */
+        /* 1. Counter Number (60) Styling */
         .big-num {
             font-size: 80px;
             font-weight: bold;
             color: #f7d54e;
             margin: 10px 0;
             line-height: 1;
+            text-shadow: 0 0 15px rgba(247, 213, 78, 0.5);
         }
 
-        /* List Items */
-        .stats-container {
-            text-align: left;
-            display: inline-block;
-            margin-bottom: 30px;
+        .stats-container { text-align: left; display: inline-block; margin-bottom: 30px; }
+        .stat-item { font-size: 16px; margin: 15px 0; display: flex; align-items: center; font-weight: 600; }
+        .check-icon { color: #f7d54e; margin-right: 10px; font-size: 20px; }
+
+        /* 2. Under-Bahar Animation for Bottom Section */
+        .bottom-anim {
+            position: relative;
+            animation: slideLeftRight 2s ease-in-out infinite;
         }
 
-        .stat-item {
-            font-size: 16px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        .check-icon {
-            color: #f7d54e;
-            margin-right: 10px;
-            font-size: 20px;
-        }
-
-        /* Button Styling */
         .telegram-btn {
             background-color: #f7d54e;
             color: #000;
@@ -101,75 +69,60 @@
             border-radius: 8px;
             font-weight: 800;
             font-size: 18px;
-            box-shadow: 0 4px 15px rgba(247, 213, 78, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(247, 213, 78, 0.5);
+            transition: 0.3s;
         }
 
-        .telegram-btn:active {
-            transform: scale(0.98);
+        .promotion-text { margin-top: 25px; font-size: 14px; }
+        .danger-code { color: #4dc3ff; font-weight: bold; }
+
+        /* Keyframes for Animations */
+        @keyframes slideLeftRight {
+            0% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            100% { transform: translateX(-5px); }
         }
 
-        /* Footer Promo */
-        .promotion-text {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #fff;
-        }
-
-        .danger-code {
-            color: #4dc3ff;
-            font-weight: bold;
-        }
-
-        /* Background Watermark Symbol */
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 300px;
-            color: rgba(255, 255, 255, 0.03);
-            z-index: -1;
-            pointer-events: none;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="watermark">R</div>
-        
         <h1>AKSHAT RAJPUT</h1>
 
         <div class="logo-box">
-            <div class="logo-inner">
-                <strong>AKSHAT RAJPUT</strong>
-                <span></span>
-            </div>
+            <div style="color: #e2b13c; font-size: 12px; font-weight: bold;">AKSHAT</div>
         </div>
 
-        <div class="big-num">60</div>
+        <div class="big-num" id="counter">60</div>
 
         <div class="stats-container">
-            <div class="stat-item">
-                <span class="check-icon">✔</span> 90/88 MATCH PASSED RECORD 🏆
-            </div>
-            <div class="stat-item">
-<span class="check-icon">✔</span> Oldest CRICKET Tipper Since 2011 🏆
-            </div>
-            <div class="stat-item">
-                <span class="check-icon">✔</span> 44/42 BBL MATCHES PASSED RECORD 🏆
-            </div>
+            <div class="stat-item"><span class="check-icon">✔</span> 90/88 MATCH PASSED</div>
+            <div class="stat-item"><span class="check-icon">✔</span> Oldest Tipper Since 2011</div>
         </div>
 
-        <a href="https://t.me/+UYxBWqLGcyI4NmE1" class="telegram-btn">
-            SUBSCRIBE AKSHAT RAJPUT TELEGRAM
-        </a>
-
-        <div class="promotion-text">
-            For paid promotion - <span class="danger-code">@BAMTAN01</span>
+        <div class="bottom-anim">
+            <a href="#" class="telegram-btn">JOIN TELEGRAM NOW</a>
+            <div class="promotion-text">
+                For Promotion - <span class="danger-code">@DANGER9902</span>
+            </div>
         </div>
     </div>
+
+    <script>
+        let count = 60;
+        const counterElement = document.getElementById('counter');
+
+        setInterval(() => {
+            count--;
+            if (count < 0) count = 60; // 0 hone ke baad wapas 60 se shuru hoga
+            counterElement.innerText = count;
+        }, 1000); // Har 1 second mein chalega
+    </script>
 
 </body>
 </html>
