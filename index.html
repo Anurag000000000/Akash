@@ -1,128 +1,151 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshat Rajput - Live</title>
+    <title>Akshat rajput</title>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1481212280292474');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1481212280292474&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
         body {
-            background-color: #0c0c0c;
+            background: #0b0e14;
+            /* Stadium background image upload karke yahan naam likhein */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('stadium.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
             color: white;
-            overflow: hidden;
-        }
-
-        .card {
-            width: 90%;
-            max-width: 400px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-            border: 1px solid #333;
-            padding: 40px 20px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h1 { font-size: 28px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .container { width: 90%; max-width: 400px; }
 
-        /* Animation: Floating Logo */
-        .logo-box {
-            width: 100px; height: 100px;
-            border: 2px solid #e2b13c;
+        .brand-name { font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+
+        .logo-circle {
+            width: 140px; height: 140px;
+            border: 3px solid #fff;
             border-radius: 50%;
-            margin: 0 auto 10px;
-            display: flex; justify-content: center; align-items: center;
-            animation: float 3s ease-in-out infinite;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            background: #000;
+        }
+        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+        .timer-text { font-size: 20px; margin-bottom: 5px; }
+        .big-number { font-size: 80px; font-weight: bold; color: #4dfa5e; margin-bottom: 10px; }
+
+        /* "Under-Bahar" Pulse Animation */
+        @keyframes pulse-move {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
-        /* 1. Counter Number (60) Styling */
-        .big-num {
-            font-size: 80px;
-            font-weight: bold;
-            color: #f7d54e;
-            margin: 10px 0;
-            line-height: 1;
-            text-shadow: 0 0 15px rgba(247, 213, 78, 0.5);
+        /* Chamakti Patti (Shine) Animation */
+        @keyframes shine {
+            0% { left: -70%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
         }
 
-        .stats-container { text-align: left; display: inline-block; margin-bottom: 30px; }
-        .stat-item { font-size: 16px; margin: 15px 0; display: flex; align-items: center; font-weight: 600; }
-        .check-icon { color: #f7d54e; margin-right: 10px; font-size: 20px; }
-
-        /* 2. Under-Bahar Animation for Bottom Section */
-        .bottom-anim {
-            position: relative;
-            animation: slideLeftRight 2s ease-in-out infinite;
-        }
-
-        .telegram-btn {
-            background-color: #f7d54e;
-            color: #000;
-            text-decoration: none;
-            padding: 18px;
+        .join-btn {
             display: block;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(247, 213, 78, 0.5);
-            transition: 0.3s;
+            background: #00f2ff; /* Video jaisa Cyan blue color */
+            color: black;
+            text-decoration: none;
+            font-weight: 900;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 20px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.6);
+            /* Animation yahan lagaya gaya hai */
+            animation: pulse-move 1.5s ease-in-out infinite;
         }
 
-        .promotion-text { margin-top: 25px; font-size: 14px; }
-        .danger-code { color: #4dc3ff; font-weight: bold; }
-
-        /* Keyframes for Animations */
-        @keyframes slideLeftRight {
-            0% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            100% { transform: translateX(-5px); }
+        .join-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -70%;
+            width: 30%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: rotate(25deg);
+            animation: shine 3s infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+        .stats-box { font-size: 14px; line-height: 1.8; margin-bottom: 20px; font-weight: bold; }
+        .footer-txt { font-size: 12px; color: #ccc; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>AKSHAT RAJPUT</h1>
+    <div class="container">
+        <div class="brand-name">AKSHAT RAJPUT 🏆</div>
 
-        <div class="logo-box">
-            <div style="color: #e2b13c; font-size: 12px; font-weight: bold;">AKSHAT</div>
+        <div class="logo-circle">
+            <img src="logo.png" alt="Arjun Bhai Logo">
         </div>
 
-        <div class="big-num" id="counter">60</div>
-
-        <div class="stats-container">
-            <div class="stat-item"><span class="check-icon">✔</span> 90/88 MATCH PASSED</div>
-            <div class="stat-item"><span class="check-icon">✔</span> Oldest Tipper Since 2011</div>
+        <div class="timer-text">Hurry Up <span id="countdown">15</span> Seconds Left</div>
+        <div class="big-number">100%</div>
+      <div class="stats-box">
+            <div>✅ 90/88 MATCH PASSED RECORD 🏆</div>
+            <div>✅ TRUSTED CRICKET ADVISOR 🏆</div>
+            <div>CRICKET BATTING KI DUNIYA KA KING 👑</div>
         </div>
+        <a href="https://t.me/+bZtPw-RYohRiY2U9" class="join-btn">
+            JOIN AKSHAT RAJPUT ®<br>TELEGRAM
+        </a>
 
-        <div class="bottom-anim">
-            <a href="#" class="telegram-btn">JOIN TELEGRAM NOW</a>
-            <div class="promotion-text">
-                For Promotion - <span class="danger-code">@DANGER9902</span>
-            </div>
-        </div>
+        <div class="footer-txt">FREE JOINING ENDS IN... <span id="footer-count">15</span></div>
     </div>
 
     <script>
-        let count = 60;
-        const counterElement = document.getElementById('counter');
+        let timeLeft = 15;
+        const countdownEl = document.getElementById('countdown');
+        const footerCountEl = document.getElementById('footer-count');
 
         setInterval(() => {
-            count--;
-            if (count < 0) count = 60; // 0 hone ke baad wapas 60 se shuru hoga
-            counterElement.innerText = count;
-        }, 1000); // Har 1 second mein chalega
+            if(timeLeft > 0) {
+                timeLeft--;
+                countdownEl.innerText = timeLeft;
+                footerCountEl.innerText = timeLeft;
+            }
+        }, 1000);
     </script>
-
+<script>
+  // Button click track karne ke liye
+  document.querySelector('.join-btn').addEventListener('click', function() {
+    fbq('track', 'Subscribe'); 
+    console.log('Subscribe Event sent to Facebook');
+  });
+</script>
 </body>
 </html>
